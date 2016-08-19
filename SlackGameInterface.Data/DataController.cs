@@ -39,6 +39,9 @@ namespace SlackGameInterface.Data
             return serviceConfig;
         }
 
+        /// <summary>
+        /// Stops SGI from posting into Slack.
+        /// </summary>
         public async Task MuteAsync()
         {
             var configService = await GetServiceConfigAsync();
@@ -46,6 +49,9 @@ namespace SlackGameInterface.Data
             await _db.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Allows SGI to resume posting into Slack if it's been muted previously.
+        /// </summary>
         public async Task UnMuteAsync()
         {
             var configService = await GetServiceConfigAsync();
