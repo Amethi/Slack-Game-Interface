@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SlackGameInterface", "SlackGameInterface\SlackGameInterface.ccproj", "{EDC2E071-9A02-4504-B39B-18487A6BDA60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackGameInterface.Api", "SlackGameInterface.Api\SlackGameInterface.Api.csproj", "{C1305146-1BA1-4F3A-B198-E2CD35568402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackGameInterface.Worker.Poller", "SlackGameInterface.Worker.Poller\SlackGameInterface.Worker.Poller.csproj", "{823B5386-80F9-46AE-B5A2-5380FF903F38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackGameInterface.Lib", "SlackGameInterface.Lib\SlackGameInterface.Lib.csproj", "{380449F3-4146-49CA-A226-92B6A1066FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackGameInterface.Data", "SlackGameInterface.Data\SlackGameInterface.Data.csproj", "{821ED62F-B4B3-4AC6-9719-B8F42D48B4C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC2E071-9A02-4504-B39B-18487A6BDA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC2E071-9A02-4504-B39B-18487A6BDA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC2E071-9A02-4504-B39B-18487A6BDA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC2E071-9A02-4504-B39B-18487A6BDA60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1305146-1BA1-4F3A-B198-E2CD35568402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1305146-1BA1-4F3A-B198-E2CD35568402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1305146-1BA1-4F3A-B198-E2CD35568402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1305146-1BA1-4F3A-B198-E2CD35568402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{823B5386-80F9-46AE-B5A2-5380FF903F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823B5386-80F9-46AE-B5A2-5380FF903F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823B5386-80F9-46AE-B5A2-5380FF903F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823B5386-80F9-46AE-B5A2-5380FF903F38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380449F3-4146-49CA-A226-92B6A1066FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380449F3-4146-49CA-A226-92B6A1066FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380449F3-4146-49CA-A226-92B6A1066FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380449F3-4146-49CA-A226-92B6A1066FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821ED62F-B4B3-4AC6-9719-B8F42D48B4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821ED62F-B4B3-4AC6-9719-B8F42D48B4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821ED62F-B4B3-4AC6-9719-B8F42D48B4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821ED62F-B4B3-4AC6-9719-B8F42D48B4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

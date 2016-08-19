@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="SlackGameInterface" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="SlackGameInterface.Api">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="!managed-by-azure-portal!" />
+      <Setting name="DatabaseConnectionString" value="!managed-by-azure-portal!"/>
+      <Setting name="Slack.Webhook-Url" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Channel" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Bot.Username" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Bot.Icon-Url" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Mute.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.UnMute.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Steam.Key" value="!managed-by-azure-portal!" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="SlackGameInterface.Worker.Poller">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="!managed-by-azure-portal!" />
+      <Setting name="DatabaseConnectionString" value="!managed-by-azure-portal!"/>
+      <Setting name="Slack.Webhook-Url" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Channel" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Bot.Username" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Bot.Icon-Url" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.Mute.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Slack.Commands.UnMute.VerificationToken" value="!managed-by-azure-portal!" />
+      <Setting name="Steam.Key" value="!managed-by-azure-portal!" />
+      <Setting name="Poller.IntervalPeriodSeconds" value="1" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
