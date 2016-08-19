@@ -10,14 +10,23 @@ using System.Web.Http.Description;
 
 namespace SlackGameInterface.Api.Controllers
 {
+    /// <summary>
+    /// Diagnostic Web API methods that can be requested through the browser.
+    /// </summary>
     public class DiagnosticsController : ApiController
     {
+        /// <summary>
+        /// Useful for telling if the service is up.
+        /// </summary>
         [HttpGet]
         public IHttpActionResult Ping()
         {
             return Ok("Pong: " + DateTime.Now);
         }
 
+        /// <summary>
+        /// Useful for seeing if the database is initialised.
+        /// </summary>
         [HttpGet]
         [ResponseType(typeof(ServiceConfig))]
         public async Task<IHttpActionResult> GetServiceConfig()
@@ -29,6 +38,9 @@ namespace SlackGameInterface.Api.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Sends a test message into Slack.
+        /// </summary>
         [HttpGet]
         public async Task<IHttpActionResult> SendTestMessage()
         {
@@ -45,6 +57,9 @@ namespace SlackGameInterface.Api.Controllers
             return Ok("Test message sent.");
         }
 
+        /// <summary>
+        /// Sends a test game message into Slack.
+        /// </summary>
         [HttpGet]
         public async Task<IHttpActionResult> SendTestGameMessage()
         {

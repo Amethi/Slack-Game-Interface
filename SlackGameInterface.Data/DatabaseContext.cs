@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace SlackGameInterface.Data
 {
+    /// <summary>
+    /// Entity Framework database connection object.
+    /// </summary>
     public class DatabaseContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.

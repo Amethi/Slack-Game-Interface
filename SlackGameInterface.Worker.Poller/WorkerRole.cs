@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace SlackGameInterface.Worker.Poller
 {
+    /// <summary>
+    /// Polls remote systems such as game API's for changes to our users and posts anything relevant to Slack.
+    /// </summary>
     public class WorkerRole : RoleEntryPoint
     {
         #region members
@@ -33,6 +36,7 @@ namespace SlackGameInterface.Worker.Poller
             }
             catch (Exception ex)
             {
+                // ensure any exceptions are persisted to Azure Application Insights.
                 _telemetryClient.TrackException(ex);
             }
             finally
@@ -73,11 +77,15 @@ namespace SlackGameInterface.Worker.Poller
             while (!cancellationToken.IsCancellationRequested)
             {
                 Trace.TraceInformation("Working");
+
+                // at the moment we are only polling Steam for information.
                 await PollSteamAsync();
 
-                // could add in more game api's here....
+                // but we could add in more game api's here....
 
                 await new DataController().UpdateLastPollTimeAsync();
+
+                // pause before the next poll to ensure we don't exceed any rate limits on APIs.
                 var interval = TimeSpan.FromSeconds(int.Parse(RoleEnvironment.GetConfigurationSettingValue("Poller.IntervalPeriodSeconds")));
                 await Task.Delay(interval, cancellationToken);
             }
@@ -85,6 +93,9 @@ namespace SlackGameInterface.Worker.Poller
         #endregion
 
         #region game api polling methods
+        /// <summary>
+        /// Polls the Steam API for changes against our known SGI users.
+        /// </summary>
         private static async Task PollSteamAsync()
         {
             // get steam user profiles to see if there's any updates, i.e. people playing games
@@ -159,11 +170,15 @@ namespace SlackGameInterface.Worker.Poller
             // save game state change back to the database
             await dataController.SaveChangesAsync();
 
+            // now send any messages we've built up
             await SendRichGameMessagesAsync(gameMessages);
         }
         #endregion
 
         #region message methods
+        /// <summary>
+        /// Prepares a message for posting in Slack by ensuring it has all the common details set.
+        /// </summary>
         private static SlackMessage NewSlackMessage()
         {
             var slackChannel = RoleEnvironment.GetConfigurationSettingValue("Slack.Channel");
@@ -178,6 +193,10 @@ namespace SlackGameInterface.Worker.Poller
             };
         }
 
+        /// <summary>
+        /// Send a single message with rich formatting into Slack for each of our game messages.
+        /// </summary>
+        /// <param name="gameMessages">The list of game messages to send to Slack.</param>
         private static async Task SendRichGameMessagesAsync(IReadOnlyCollection<GameMessage> gameMessages)
         {
             // work out what kind of message(s) we're going to send to slack, if any

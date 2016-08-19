@@ -7,8 +7,17 @@ using System.Web.Http;
 
 namespace SlackGameInterface.Api.Controllers
 {
+    /// <summary>
+    /// Web API methods that can be called by Slack through custom commands to instruct SGI to do something.
+    /// </summary>
     public class CommandsController : ApiController
     {
+        /// <summary>
+        /// Adds a new user to the system by their slack username.
+        /// </summary>
+        /// <remarks>
+        /// Needs renaming to drop "Steam" from the method name. SGI is to support more than just Steam.
+        /// </remarks>
         [HttpPost]
         public async Task<IHttpActionResult> AddSteamUser()
         {
@@ -48,6 +57,12 @@ namespace SlackGameInterface.Api.Controllers
             return Ok("Steam user added.");
         }
 
+        /// <summary>
+        /// Removes a user from SGI by their slack username.
+        /// </summary>
+        /// <remarks>
+        /// Needs renaming to drop "Steam" from the method name. SGI is to support more than just Steam.
+        /// </remarks>
         [HttpPost]
         public async Task<IHttpActionResult> RemoveSteamUser()
         {
@@ -64,7 +79,7 @@ namespace SlackGameInterface.Api.Controllers
 
             try
             {
-                await new DataController().RemoveSteamUserAsync(slackUsername);
+                await new DataController().RemoveUserAsync(slackUsername);
             }
             catch (UserDoesntExistException ex)
             {
@@ -74,6 +89,9 @@ namespace SlackGameInterface.Api.Controllers
             return Ok("Steam user removed.");
         }
 
+        /// <summary>
+        /// Causes SGI to be muted, so it doesn't post into Slack.
+        /// </summary>
         [HttpPost]
         public async Task<IHttpActionResult> Mute()
         {
@@ -88,6 +106,10 @@ namespace SlackGameInterface.Api.Controllers
             return Ok("Muted.");
         }
 
+        /// <summary>
+        /// Causes SGI to be un-muted, so it can continue to post into Slack.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IHttpActionResult> UnMute()
         {
