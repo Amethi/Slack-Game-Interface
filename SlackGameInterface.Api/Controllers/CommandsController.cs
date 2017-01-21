@@ -31,14 +31,14 @@ namespace SlackGameInterface.Api.Controllers
                 return Unauthorized();
 
             if (string.IsNullOrEmpty(text))
-                return BadRequest("No Slack username or Steam username provided.");
+                return BadRequest("No Slack username or Steam id provided.");
 
             if (!text.Contains(" "))
-                return BadRequest("Two parameters are needed: The Slack username and Steam username of the person to add.");
+                return BadRequest("Two parameters are needed: The Slack username and Steam id of the person to add.");
 
             var textParts = text.Split(' ');
             if (textParts.Length != 2)
-                return BadRequest("Two parameters are needed: The Slack username and Steam username of the person to add.");
+                return BadRequest("Two parameters are needed: The Slack username and Steam id of the person to add.");
 
             var slackUsername = textParts[0];
             long steamId;

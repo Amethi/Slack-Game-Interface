@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.WindowsAzure.ServiceRuntime;
+using System.Web.Http;
 
 namespace SlackGameInterface.Api
 {
@@ -6,6 +8,7 @@ namespace SlackGameInterface.Api
     {
         protected void Application_Start()
         {
+            TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

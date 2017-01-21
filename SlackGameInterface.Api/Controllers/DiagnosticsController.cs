@@ -71,6 +71,24 @@ namespace SlackGameInterface.Api.Controllers
                 IconUrl = new Uri(RoleEnvironment.GetConfigurationSettingValue("Slack.Bot.Icon-Url")),
             };
 
+            await slack.PostAsync(message);
+            return Ok("Test game message sent.");
+        }
+
+        /// <summary>
+        /// Sends a test game message into Slack.
+        /// </summary>
+        [HttpGet]
+        public async Task<IHttpActionResult> SendTestGameMessageWithGraphic()
+        {
+            var slack = new SlackClient(RoleEnvironment.GetConfigurationSettingValue("Slack.Webhook-Url"));
+            var message = new SlackMessage
+            {
+                Channel = RoleEnvironment.GetConfigurationSettingValue("Slack.Test-Channel"),
+                Username = RoleEnvironment.GetConfigurationSettingValue("Slack.Bot.Username"),
+                IconUrl = new Uri(RoleEnvironment.GetConfigurationSettingValue("Slack.Bot.Icon-Url")),
+            };
+
             var attachment = new SlackAttachment
             {
                 ImageUrl = "http://cdn.akamai.steamstatic.com/steam/apps/379720/capsule_sm_120.jpg",

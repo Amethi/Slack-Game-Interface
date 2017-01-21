@@ -3,35 +3,35 @@
   <Role name="SlackGameInterface.Api">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="!managed-by-azure-portal!" />
-      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="!managed-by-azure-portal!" />
-      <Setting name="DatabaseConnectionString" value="!managed-by-azure-portal!"/>
-      <Setting name="Slack.Webhook-Url" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Channel" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Bot.Username" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Bot.Icon-Url" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Mute.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.UnMute.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Steam.Key" value="!managed-by-azure-portal!" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=slackgameinterface;AccountKey=fbUp7I8GYRkUEfPCd14AGZgtFxGEtyPbix0kcRZkESBVK43oHHwHHm6P+dtBFqpjRALAg1AyZNp3r02g2UJEKg==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="9b048edb-a98b-4dc0-86e3-42a32b284f0d" />
+      <Setting name="DatabaseConnectionString" value="Server=tcp:eed-slack-agentdbserver.database.windows.net,1433;Initial Catalog=EED-Slack-Agent_db;Persist Security Info=False;User ID=eedSqlAdmin;Password=ucZ8tHnXyqK1RDv;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"/>
+      <Setting name="Slack.Webhook-Url" value="https://hooks.slack.com/services/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" />
+      <Setting name="Slack.Channel" value="#crosshatch" />
+      <Setting name="Slack.Bot.Username" value="rebot" />
+      <Setting name="Slack.Bot.Icon-Url" value="http://f.londonbikers.com/eed.gif" />
+      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="Tuiw2khMhaGDGbpKg1Y15XxL" />
+      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="vdc0Mcio90MonDeYZqNPiNen" />
+      <Setting name="Slack.Commands.Mute.VerificationToken" value="MTdT8YtcOEcSBfK5zkqWmr3H" />
+      <Setting name="Slack.Commands.UnMute.VerificationToken" value="k8geGaYoCxhBuEgkAL31olUN" />
+      <Setting name="Steam.Key" value="AC5CD82CE9501D9C263A51FBDAB3B0AC" />
     </ConfigurationSettings>
   </Role>
   <Role name="SlackGameInterface.Worker.Poller">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="!managed-by-azure-portal!" />
-      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="!managed-by-azure-portal!" />
-      <Setting name="DatabaseConnectionString" value="!managed-by-azure-portal!"/>
-      <Setting name="Slack.Webhook-Url" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Channel" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Bot.Username" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Bot.Icon-Url" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.Mute.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Slack.Commands.UnMute.VerificationToken" value="!managed-by-azure-portal!" />
-      <Setting name="Steam.Key" value="!managed-by-azure-portal!" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=slackgameinterface;AccountKey=fbUp7I8GYRkUEfPCd14AGZgtFxGEtyPbix0kcRZkESBVK43oHHwHHm6P+dtBFqpjRALAg1AyZNp3r02g2UJEKg==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="9b048edb-a98b-4dc0-86e3-42a32b284f0d" />
+      <Setting name="DatabaseConnectionString" value="Server=tcp:eed-slack-agentdbserver.database.windows.net,1433;Initial Catalog=EED-Slack-Agent_db;Persist Security Info=False;User ID=eedSqlAdmin;Password=ucZ8tHnXyqK1RDv;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"/>
+      <Setting name="Slack.Webhook-Url" value="https://hooks.slack.com/services/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" />
+      <Setting name="Slack.Channel" value="#crosshatch" />
+      <Setting name="Slack.Bot.Username" value="rebot" />
+      <Setting name="Slack.Bot.Icon-Url" value="http://f.londonbikers.com/eed.gif" />
+      <Setting name="Slack.Commands.Add-Steam-User.VerificationToken" value="Tuiw2khMhaGDGbpKg1Y15XxL" />
+      <Setting name="Slack.Commands.Remove-Steam-User.VerificationToken" value="vdc0Mcio90MonDeYZqNPiNen" />
+      <Setting name="Slack.Commands.Mute.VerificationToken" value="MTdT8YtcOEcSBfK5zkqWmr3H" />
+      <Setting name="Slack.Commands.UnMute.VerificationToken" value="k8geGaYoCxhBuEgkAL31olUN" />
+      <Setting name="Steam.Key" value="AC5CD82CE9501D9C263A51FBDAB3B0AC" />
       <Setting name="Poller.IntervalPeriodSeconds" value="1" />
     </ConfigurationSettings>
   </Role>

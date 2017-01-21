@@ -193,6 +193,55 @@ namespace SlackGameInterface.Worker.Poller
             };
         }
 
+        ///// <summary>
+        ///// Send a single message with rich formatting into Slack for each of our game messages.
+        ///// </summary>
+        ///// <param name="gameMessages">The list of game messages to send to Slack.</param>
+        //private static async Task SendRichGameMessagesAsync(IReadOnlyCollection<GameMessage> gameMessages)
+        //{
+        //    // work out what kind of message(s) we're going to send to slack, if any
+        //    var serviceConfig = await new DataController().GetServiceConfigAsync();
+        //    if (gameMessages.Count > 0 && !serviceConfig.Silenced)
+        //    {
+        //        var webhookUrl = RoleEnvironment.GetConfigurationSettingValue("Slack.Webhook-Url");
+        //        var slack = new SlackClient(webhookUrl);
+        //        foreach (var gameMessage in gameMessages)
+        //        {
+        //            var message = NewSlackMessage();
+        //            var attachment = new SlackAttachment
+        //            {
+        //                ImageUrl = $"http://cdn.akamai.steamstatic.com/steam/apps/{gameMessage.GameId}/capsule_sm_120.jpg",
+        //                Color = "#FFB400",
+        //                MrkdwnIn = new List<string> { "text" }
+        //            };
+
+        //            if (gameMessage.Type != GameMessageType.Playing)
+        //                continue;
+
+        //            switch (gameMessage.Users.Count)
+        //            {
+        //                case 1:
+        //                    attachment.Text = $"*{gameMessage.Users[0].SlackUsername}* is now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
+        //                    break;
+        //                case 2:
+        //                    attachment.Text = $"*{gameMessage.Users[0].SlackUsername}* and *{gameMessage.Users[1].SlackUsername}* are now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
+        //                    break;
+        //                default:
+        //                    if (gameMessage.Users.Count > 2)
+        //                    {
+        //                        var firstUsers = string.Join("*, *", gameMessage.Users.GetRange(0, gameMessage.Users.Count - 1).Select(q => q.SlackUsername));
+        //                        attachment.Text = $"*{firstUsers}* and *{gameMessage.Users.Last().SlackUsername}* are all now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>! Get in!";
+        //                    }
+        //                    break;
+        //            }
+
+        //            message.Attachments = new List<SlackAttachment> { attachment };
+        //            var result = slack.Post(message);
+        //            Trace.WriteLine($"Posting message to slack was successful? {result}");
+        //        }
+        //    }
+        //}
+
         /// <summary>
         /// Send a single message with rich formatting into Slack for each of our game messages.
         /// </summary>
@@ -208,34 +257,26 @@ namespace SlackGameInterface.Worker.Poller
                 foreach (var gameMessage in gameMessages)
                 {
                     var message = NewSlackMessage();
-                    var attachment = new SlackAttachment
-                    {
-                        ImageUrl = $"http://cdn.akamai.steamstatic.com/steam/apps/{gameMessage.GameId}/capsule_sm_120.jpg",
-                        Color = "#FFB400",
-                        MrkdwnIn = new List<string> { "text" }
-                    };
-
                     if (gameMessage.Type != GameMessageType.Playing)
                         continue;
 
                     switch (gameMessage.Users.Count)
                     {
                         case 1:
-                            attachment.Text = $"*{gameMessage.Users[0].SlackUsername}* is now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
+                            message.Text = $"*{gameMessage.Users[0].SlackUsername}* is now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
                             break;
                         case 2:
-                            attachment.Text = $"*{gameMessage.Users[0].SlackUsername}* and *{gameMessage.Users[1].SlackUsername}* are now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
+                            message.Text = $"*{gameMessage.Users[0].SlackUsername}* and *{gameMessage.Users[1].SlackUsername}* are now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>";
                             break;
                         default:
                             if (gameMessage.Users.Count > 2)
                             {
                                 var firstUsers = string.Join("*, *", gameMessage.Users.GetRange(0, gameMessage.Users.Count - 1).Select(q => q.SlackUsername));
-                                attachment.Text = $"*{firstUsers}* and *{gameMessage.Users.Last().SlackUsername}* are all now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>! Get in!";
+                                message.Text = $"*{firstUsers}* and *{gameMessage.Users.Last().SlackUsername}* are all now playing <http://store.steampowered.com/app/{gameMessage.GameId}/|*{gameMessage.GameName}*>! Get in!";
                             }
                             break;
                     }
 
-                    message.Attachments = new List<SlackAttachment> { attachment };
                     var result = slack.Post(message);
                     Trace.WriteLine($"Posting message to slack was successful? {result}");
                 }

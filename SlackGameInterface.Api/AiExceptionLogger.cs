@@ -12,7 +12,6 @@ namespace SlackGameInterface.Api
         {
             if (context?.Exception != null)
             {
-                //or reuse instance (recommended!). see note above 
                 var ai = new TelemetryClient();
                 ai.TrackException(context.Exception);
             }
